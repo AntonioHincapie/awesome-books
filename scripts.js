@@ -2,6 +2,19 @@ import dataBooks from './databooks.js';
 
 //Agregar funcion add y remove
 
+const addButton = document.getElementById('add');
+const nameBook = document.getElementById('book');
+const nameAuthor = document.getElementsById('author');
+
+addButton.addEventListener('click', addList());
+
+function addList(book, author){
+  this.bookName = book;
+  this.authorName = author;
+}
+const newBook = new addList(nameBook, nameAuthor);
+
+dataBooks.push(newBook);
 
 const bookList = document.getElementById('list');
 const printList = () => {
