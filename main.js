@@ -1,11 +1,11 @@
 const books = document.getElementById('books');
-const titulo = document.getElementById('titulo');
-const autor = document.getElementById('autor');
+let titulo = document.getElementById('titulo');
+let autor = document.getElementById('autor');
 const addBtn = document.getElementById('btn');
 
 let dataBooks = [];
 
-if(localStorage.getItem('book')) {
+if (localStorage.getItem('book')) {
   dataBooks = JSON.parse(localStorage.getItem('book'));
 }
 
@@ -14,7 +14,13 @@ class Libro {
     this.title = title;
     this.author = author;
   }
-};
+}
+
+function deleteBook(index, libro) {
+  libro.remove();
+  dataBooks.splice(index, 1);
+  localStorage.setItem('book', JSON.stringify(dataBooks));
+}
 
 const printList = () => {
   books.innerHTML = null;
@@ -35,24 +41,18 @@ const printList = () => {
     bookStorage.appendChild(deleteBtn);
     deleteBtn.addEventListener('click', () => {
       deleteBook(i, bookStorage);
-    })
+    });
   }
 };
 
 printList();
 
-function deleteBook(index, libro) {
-  libro.remove();
-  dataBooks.splice(index, 1);
-  localStorage.setItem('book', JSON.stringify(dataBooks));
-}
-
 const addBook = (title, author) => {
-  const libro = new Libro (title, author)
+  const libro = new Libro(title, author);
   dataBooks.push(libro);
   localStorage.setItem('book', JSON.stringify(dataBooks));
   printList();
-}
+};
 
 addBtn.addEventListener('click', () => {
   addBook(titulo.value, autor.value);
