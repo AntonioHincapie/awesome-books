@@ -40,6 +40,7 @@ const printList = () => {
     deleteBtn.textContent = 'Delete';
     books.appendChild(bookStorage);
     bookStorage.append(bookInfo, deleteBtn);
+    bookStorage.className = 'bookStorage';
     deleteBtn.addEventListener('click', () => {
       bookStorage.remove();
       libro.deleteBook(i);
