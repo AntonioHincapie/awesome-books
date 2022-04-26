@@ -1,16 +1,12 @@
-let dataBooks = [];
-let titulo = document.getElementById('titulo');
-let autor = document.getElementById('autor');
-const books = document.getElementById('books')
-const alert = document.getElementById('btn').addEventListener('click', bst)
-function bst () {
-  dataBooks.push([{bookTitle: titulo.value, bookAuthor: autor.value}]);
-  localStorage.setItem('book', JSON.stringify({dataBooks}));
-  printList();
-}
+let dataBooks = [];  // define un contenedor array
+let titulo = document.getElementById('titulo').value; //toma el dato ingresado or el usuario en titulo
+let autor = document.getElementById('autor').value; //toma el dato ingresado or el usuario en autor
+const books = document.getElementById('books') //define el lugar donde se ingrearán los satos de JS a HTML
+const alert = document.getElementById('btn').addEventListener('click', bst) //define la función que se ejecutará al presionar el botón
+
 
 function setText() {
-  let bookInfo = JSON.parse(localStorage.getItem('book'));
+  let bookInfo = JSON.parse(localStorage.getItem('book'));//guarda la información de oos libros como un objeto en la memoria local
 }
 
 function populateStorage() {
@@ -42,6 +38,12 @@ const printList = () => {
     books.appendChild(authorName);
     books.appendChild(deleteBtn);
   }
+};
+
+function bst() {
+  dataBooks.push({ bookTitle: titulo.value, bookAuthor: autor.value });//añade un objeto con los datos del libro al array
+  localStorage.setItem('book', JSON.stringify({ dataBooks }));//guarda los datos en la memoria local como strg
+  printList();//imprime la lista de libros
 };
 
 printList();
