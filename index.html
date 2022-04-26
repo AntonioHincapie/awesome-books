@@ -4,33 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Awesome Books</title>
+    <title>Document</title>
   </head>
   <body>
-    <main>
-      <h1>Awsome books</h1>
-      <div id="list"></div>
-      <div id="AddNew">
-        <form id="addForm">
-          <input
-            type="name"
-            class="form-control"
-            id="book"
-            placeholder="Title"
-          />
-          <label for="floatingInput"></label>
-          <input
-            type="name"
-            class="form-control"
-            id="author"
-            placeholder="Author"
-          />
-          <label for="floatingBook"></label>
-          <button type="submit" id="add">Add</button>
-        </form>
-      </div>
-    </main>
-    <script type="module" src="./scripts.js"></script>
-    <script type="module" src="./databooks.js"></script>
+    <h1>Awesome books</h1>
+    <div id="books"></div>
+    <label for="titulo">Libro</label>
+    <input type="text" id="titulo" placeholder="libro" />
+    <label for="autor">Autor</label>
+    <input type="text" id="autor" placeholder="autor" />
+    <button id="btn">Añadir</button>
+    <script src="./main.js"></script>
   </body>
 </html>
