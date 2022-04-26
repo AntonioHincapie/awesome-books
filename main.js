@@ -37,7 +37,7 @@ const printList = () => {
     const bookInfo = document.createElement('p');
     const deleteBtn = document.createElement('button');
     bookInfo.textContent = `"${dataBooks[i].title}" by ${dataBooks[i].author}`;
-    deleteBtn.textContent = 'Delete';
+    deleteBtn.textContent = 'Remove';
     books.appendChild(bookStorage);
     bookStorage.append(bookInfo, deleteBtn);
     bookStorage.className = 'bookStorage';
