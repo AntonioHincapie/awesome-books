@@ -4,6 +4,11 @@ const autor = document.getElementById('autor');
 const addBtn = document.getElementById('btn');
 
 let dataBooks = [];
+
+if(localStorage.getItem('book')) {
+  dataBooks = JSON.parse(localStorage.getItem('book'));
+}
+
 class Libro {
   constructor(title, author) {
     this.title = title;
@@ -41,3 +46,16 @@ function deleteBook(index, libro) {
   dataBooks.splice(index, 1);
   localStorage.setItem('book', JSON.stringify(dataBooks));
 }
+
+const addBook = (title, author) => {
+  const libro = new Libro (title, author)
+  dataBooks.push(libro);
+  localStorage.setItem('book', JSON.stringify(dataBooks));
+  printList();
+}
+
+addBtn.addEventListener('click', () => {
+  addBook(titulo.value, autor.value);
+  titulo = '';
+  autor = '';
+});
