@@ -1,6 +1,7 @@
 const booksBtn = document.getElementById('booksBtn');
 const addBookbtn = document.getElementById('addbookBtn');
 const contactBtn = document.getElementById ('contactBtn');
+const containerBooks = document.getElementById('container');
 const books = document.getElementById('books');
 const addNew = document.getElementById('addbook');
 const contact = document.getElementById('contact');
@@ -92,20 +93,20 @@ addBtn.addEventListener('click', () => {
 });
 
 booksBtn.addEventListener('click', () => {
-  books.style.display = 'flex';
+  containerBooks.style.display = 'flex';
   addNew.style.display = 'none';
   contact.style.display = 'none';
   printList();
 });
 
 addBookbtn.addEventListener('click', () => {
-  books.style.display = 'none';
+  containerBooks.style.display = 'none';
   addNew.style.display = 'flex';
   contact.style.display = 'none';
 });
 
 contactBtn.addEventListener('click', () => {
-  books.style.display = 'none';
+  containerBooks.style.display = 'none';
   addNew.style.display = 'none';
-  contact.style.display = 'block';
+  contact.style.display = 'flex';
 });
