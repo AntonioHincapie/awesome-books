@@ -51,7 +51,7 @@ const printList = () => {
 printList();
 
 addBtn.addEventListener('click', () => {
-  let = libro = new Libro(titulo.value, autor.value);
+  let libro = new Libro(titulo.value, autor.value);
   libro.addBook(libro);
   titulo = '';
   autor = '';
