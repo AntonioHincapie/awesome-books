@@ -13,7 +13,10 @@
   display: flex;
   justify-content: flex-end;
   gap: 10px;
-  margin: 10px 0;
+  margin: 10px 20px;
+  font-family: 'Lato', sans-serif;
+  font-size: 1em;
+  font-weight: bolder;
 }
 
 .navigation {
@@ -40,18 +43,12 @@
   padding-top: 0;
 }
 
-.navBar a {
+a {
   font-family: 'Lato', sans-serif;
   font-size: 1em;
   font-weight: bold;
   color: #d3d3d3;
   text-decoration: none;
-}
-
-.clock {
-  font-family: 'Lato', sans-serif;
-  font-size: 1em;
-  font-weight: bolder;
 }
 
 #addbook {
@@ -154,8 +151,4 @@ footer {
   height: 50px;
   color: #d3d3d3;
   background-color: #272a31;
-}
-
-footer a {
-  color: #d3d3d3;
 }
