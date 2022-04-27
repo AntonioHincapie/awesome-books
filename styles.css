@@ -3,11 +3,46 @@
   src: url(./Fonts/Righteous/Righteous-Regular.ttf);
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  background-color: #272a31;
+  height: 50px;
+}
+
+.logo {
+  margin-left: 20px;
+  color: #fff;
+}
+
+.navBar {
+  display: flex;
+  gap: 20px;
+  list-style-type: none;
+  color: #fff;
+  margin-right: 20px;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.navBar a {
+  color: #d3d3d3;
+  text-decoration: none;
 }
 
 .addbook {
