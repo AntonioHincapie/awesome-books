@@ -13,7 +13,7 @@ let dataBooks = JSON.parse(localStorage.getItem('book')) || [];
 // This code below was recovered from https://programacion.net/
 function checkTime(i) {
   if (i < 10) {
-    i = '0' + i;
+    i = `0${i}`;
   }
   return i;
 }
@@ -29,16 +29,16 @@ function startTime() {
   hr = checkTime(hr);
   min = checkTime(min);
   sec = checkTime(sec);
-  document.getElementById('clock').innerHTML = hr + ':' + min + ':' + sec + '' + ap; 
+  document.getElementById('clock').innerHTML = `${hr}:${min}:${sec} ${ap}`;
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   const curWeekDay = days[today.getDay()];
   const curDay = today.getDate();
   const curMonth = months[today.getMonth()];
   const curYear = today.getFullYear();
-  const date = curWeekDay + ', ' + curDay + ' ' + curMonth + ' ' + curYear;
+  const date = `${curWeekDay}, ${curDay} ${curMonth} ${curYear}`;
   document.getElementById("date").innerHTML = date;  
-  let time = setTimeout (function () {startTime();}, 500);
+  const time = setTimeout (function time() { startTime(); }, 1000);
 }
 // This code above was recovered from https://programacion.net/
 
