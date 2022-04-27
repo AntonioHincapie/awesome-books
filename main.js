@@ -2,6 +2,7 @@ const books = document.getElementById('books');
 const titulo = document.getElementById('titulo');
 const autor = document.getElementById('autor');
 const addBtn = document.getElementById('btn');
+let dataBooks = JSON.parse(localStorage.getItem('book')) || [];
 
 class Libro {
   constructor(title, author) {
@@ -10,12 +11,12 @@ class Libro {
     this.author = author;
   }
 
-  deleteBook(index) {
+  deleteBook = (index) => {
     dataBooks.splice(index, 1);
     localStorage.setItem('book', JSON.stringify(dataBooks));
   }
 
-  addBook(libro) {
+  addBook = (libro) => {
     dataBooks.push(libro);
     localStorage.setItem('book', JSON.stringify(dataBooks));
   }
