@@ -9,7 +9,7 @@ const autor = document.getElementById('autor');
 const addBtn = document.getElementById('btn');
 let dataBooks = JSON.parse(localStorage.getItem('book')) || [];
 
-// This material is extracted from https://programacion.net/
+// This code below was recovered from https://programacion.net/
 function startTime() {
     var today = new Date();
     var hr = today.getHours();
@@ -40,6 +40,7 @@ function checkTime(i) {
     }
     return i;
 }
+// This code above was recovered from https://programacion.net/
 
 window.onload = startTime();
 
