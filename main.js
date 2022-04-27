@@ -9,7 +9,6 @@ if (localStorage.getItem('book')) {
   dataBooks = JSON.parse(localStorage.getItem('book'));
 }
 
-
 class Libro {
   constructor(title, author) {
     this.title = title;
@@ -17,18 +16,18 @@ class Libro {
   }
 
   deleteBook(index) {
-    dataBooks.splice(index, 1);
+    this.dataBooks.splice(index, 1);
     localStorage.setItem('book', JSON.stringify(dataBooks));
   }
 
   addBook(libro) {
-    dataBooks.push(libro);
+    this.dataBooks.push(libro);
     localStorage.setItem('book', JSON.stringify(dataBooks));
   }
 }
 
 const printList = () => {
-  const libro = new Libro()
+  const libro = new Libro();
   books.innerHTML = null;
   if (localStorage.getItem('book')) {
     dataBooks = JSON.parse(localStorage.getItem('book'));
