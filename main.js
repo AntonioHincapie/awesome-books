@@ -38,7 +38,7 @@ function startTime() {
   const curYear = today.getFullYear();
   const date = `${curWeekDay}, ${curDay} ${curMonth} ${curYear}`;
   document.getElementById('date').innerHTML = date;
-  setTimeout( () => { startTime(); }, 1000);
+  setTimeout(() => { startTime(); }, 1000);
 }
 // This code above was recovered from https://programacion.net/
 
