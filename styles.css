@@ -45,11 +45,10 @@ body {
   text-decoration: none;
 }
 
-.addbook {
-  display: flex;
+#addbook {
+  display: none;
   flex-direction: column;
-  justify-content: center;
-  align-content: center;
+  gap: 20px;
 }
 
 h1 {
@@ -67,6 +66,7 @@ h2 {
 #books {
   display: flex;
   flex-direction: column;
+  gap: 5px;
   width: 500px;
 }
 
@@ -101,6 +101,7 @@ button:active {
 
 footer {
   text-align: center;
+  line-height: 50px;
   position: absolute;
   bottom: 0;
   width: 100vw;

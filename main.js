@@ -1,8 +1,32 @@
+const booksBtn = document.getElementById('booksBtn');
+const addBookbtn = document.getElementById('addbookBtn');
+const contactBtn = document.getElementById ('contactBtn');
+const date = document.getElementById('date');
 const books = document.getElementById('books');
+const addNew = document.getElementById('addbook');
+const contact = document.getElementById('contact');
 const titulo = document.getElementById('titulo');
 const autor = document.getElementById('autor');
 const addBtn = document.getElementById('btn');
 let dataBooks = JSON.parse(localStorage.getItem('book')) || [];
+
+booksBtn.addEventListener('click', () => {
+  books.style.display = 'flex';
+  addNew.style.display = 'none';
+  contact.style.display = 'none';
+});
+
+addBookbtn.addEventListener('click', () => {
+  books.style.display = 'none';
+  addNew.style.display = 'flex';
+  contact.style.display = 'none';
+});
+
+contactBtn.addEventListener('click', () => {
+  books.style.display = 'none';
+  addNew.style.display = 'none';
+  contact.style.display = 'block';
+});
 
 class Libro {
   constructor(title, author) {
