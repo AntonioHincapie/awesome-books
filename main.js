@@ -3,10 +3,6 @@ const titulo = document.getElementById('titulo');
 const autor = document.getElementById('autor');
 const addBtn = document.getElementById('btn');
 
-if (localStorage.getItem('book')) {
-  dataBooks = JSON.parse(localStorage.getItem('book'));
-}
-
 class Libro {
   constructor(title, author) {
     this.dataBooks = [title, author];
@@ -29,7 +25,7 @@ const printList = () => {
   const libro = new Libro();
   books.innerHTML = null;
   if (localStorage.getItem('book')) {
-    dataBooks = JSON.parse(localStorage.getItem('book'));
+    dataBooks = JSON.parse(localStorage.getItem('book')) || [];
   }
   for (let i = 0; i < dataBooks.length; i += 1) {
     const bookStorage = document.createElement('div');
