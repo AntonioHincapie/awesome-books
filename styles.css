@@ -16,9 +16,10 @@ body {
   align-items: center;
 }
 
-#date {
+.clock {
   display: flex;
   justify-content: flex-end;
+  gap: 10px;
   margin: 10px 0;
 }
 
