@@ -28,6 +28,12 @@ contactBtn.addEventListener('click', () => {
   contact.style.display = 'block';
 });
 
+function displayDate() {
+  date.innerHTML = Date();
+}
+window.onload = displayDate();
+
+
 class Libro {
   constructor(title, author) {
     this.dataBooks = [title, author];

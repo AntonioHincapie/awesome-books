@@ -16,6 +16,12 @@ body {
   align-items: center;
 }
 
+#date {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 0;
+}
+
 .navigation {
   display: flex;
   justify-content: space-between;
