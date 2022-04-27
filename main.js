@@ -9,7 +9,7 @@ if (localStorage.getItem('book')) {
 
 class Libro {
   constructor(title, author) {
-    this.dataBooks = [];
+    this.dataBooks = [title, author];
     this.title = title;
     this.author = author;
   }
