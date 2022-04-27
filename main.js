@@ -3,25 +3,24 @@ const titulo = document.getElementById('titulo');
 const autor = document.getElementById('autor');
 const addBtn = document.getElementById('btn');
 
-let dataBooks = [];
-
 if (localStorage.getItem('book')) {
   dataBooks = JSON.parse(localStorage.getItem('book'));
 }
 
 class Libro {
   constructor(title, author) {
+    this.dataBooks = [];
     this.title = title;
     this.author = author;
   }
 
   deleteBook(index) {
-    this.dataBooks.splice(index, 1);
+    dataBooks.splice(index, 1);
     localStorage.setItem('book', JSON.stringify(dataBooks));
   }
 
   addBook(libro) {
-    this.dataBooks.push(libro);
+    dataBooks.push(libro);
     localStorage.setItem('book', JSON.stringify(dataBooks));
   }
 }
