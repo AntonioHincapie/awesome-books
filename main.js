@@ -13,33 +13,32 @@ let dataBooks = JSON.parse(localStorage.getItem('book')) || [];
 // This code below was recovered from https://programacion.net/
 function checkTime(i) {
   if (i < 10) {
-      i = '0' + i;
+    i = '0' + i;
   }
   return i;
 }
 
 function startTime() {
-  let today = new Date();
+  const today = new Date();
   let hr = today.getHours();
   let min = today.getMinutes();
   let sec = today.getSeconds();
-  let ap = (hr < 12) ? '<span>AM</span>' : '<span>PM</span>';
+  const ap = (hr < 12) ? '<span>AM</span>' : '<span>PM</span>';
   hr = (hr === 0) ? 12 : hr;
   hr = (hr > 12) ? hr - 12 : hr;
   hr = checkTime(hr);
   min = checkTime(min);
   sec = checkTime(sec);
   document.getElementById('clock').innerHTML = hr + ':' + min + ':' + sec + '' + ap; 
-  let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  let curWeekDay = days[today.getDay()];
-  let curDay = today.getDate();
-  let curMonth = months[today.getMonth()];
-  let curYear = today.getFullYear();
-  let date = curWeekDay+", "+curDay+" "+curMonth+" "+curYear;
-  document.getElementById("date").innerHTML = date;
-    
-  let time = setTimeout(function(){ startTime() }, 500);
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const curWeekDay = days[today.getDay()];
+  const curDay = today.getDate();
+  const curMonth = months[today.getMonth()];
+  const curYear = today.getFullYear();
+  const date = curWeekDay + ', ' + curDay + ' ' + curMonth + ' ' + curYear;
+  document.getElementById("date").innerHTML = date;  
+  let time = setTimeout (function () {startTime();}, 500);
 }
 // This code above was recovered from https://programacion.net/
 
