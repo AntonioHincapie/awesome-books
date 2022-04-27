@@ -1,61 +1,52 @@
 const books = document.getElementById('books');
-let titulo = document.getElementById('titulo');
-let autor = document.getElementById('autor');
+const titulo = document.getElementById('titulo');
+const autor = document.getElementById('autor');
 const addBtn = document.getElementById('btn');
-
-let dataBooks = [];
-
-if (localStorage.getItem('book')) {
-  dataBooks = JSON.parse(localStorage.getItem('book'));
-}
+let dataBooks = JSON.parse(localStorage.getItem('book')) || [];
 
 class Libro {
   constructor(title, author) {
+    this.dataBooks = [title, author];
     this.title = title;
     this.author = author;
   }
-}
 
-function deleteBook(index, libro) {
-  libro.remove();
-  dataBooks.splice(index, 1);
-  localStorage.setItem('book', JSON.stringify(dataBooks));
+  deleteBook = (index) => {
+    dataBooks.splice(index, 1);
+    localStorage.setItem('book', JSON.stringify(dataBooks));
+  }
+
+  addBook = (libro) => {
+    dataBooks.push(libro);
+    localStorage.setItem('book', JSON.stringify(dataBooks));
+  }
 }
 
 const printList = () => {
+  const libro = new Libro();
   books.innerHTML = null;
   if (localStorage.getItem('book')) {
-    dataBooks = JSON.parse(localStorage.getItem('book'));
+    dataBooks = JSON.parse(localStorage.getItem('book')) || [];
   }
   for (let i = 0; i < dataBooks.length; i += 1) {
     const bookStorage = document.createElement('div');
-    const bookName = document.createElement('p');
-    const authorName = document.createElement('p');
+    const bookInfo = document.createElement('p');
     const deleteBtn = document.createElement('button');
-    bookName.textContent = dataBooks[i].title;
-    authorName.textContent = dataBooks[i].author;
-    deleteBtn.textContent = 'Delete';
+    bookInfo.textContent = `"${dataBooks[i].title}" by ${dataBooks[i].author}`;
+    deleteBtn.textContent = 'Remove';
     books.appendChild(bookStorage);
-    bookStorage.appendChild(bookName);
-    bookStorage.appendChild(authorName);
-    bookStorage.appendChild(deleteBtn);
+    bookStorage.append(bookInfo, deleteBtn);
+    bookStorage.className = 'bookStorage';
     deleteBtn.addEventListener('click', () => {
-      deleteBook(i, bookStorage);
+      bookStorage.remove();
+      libro.deleteBook(i);
     });
   }
 };
 
 printList();
 
-const addBook = (title, author) => {
-  const libro = new Libro(title, author);
-  dataBooks.push(libro);
-  localStorage.setItem('book', JSON.stringify(dataBooks));
-  printList();
-};
-
 addBtn.addEventListener('click', () => {
-  addBook(titulo.value, autor.value);
-  titulo = '';
-  autor = '';
+  const libro = new Libro(titulo.value, autor.value);
+  libro.addBook(libro);
 });
